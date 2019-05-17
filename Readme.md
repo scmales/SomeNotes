@@ -56,3 +56,5 @@ git clone git@github.com:Nzzz/learngit.git //把远程库克隆到本地库
 删除分支：git branch -d <name>
 
 删除远程分支： git push origin :<name>
+
+将远程分支和本地分支合并: git pull origin (远程分支名):(本地分支名)
