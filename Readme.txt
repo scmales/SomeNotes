@@ -62,3 +62,7 @@ git clone git@github.com:Nzzz/learngit.git //把远程库克隆到本地库
 ---------------------------------------------------
 撤销本地git commit -m "update " :  git reset --soft HEAD^   (head^表示仅仅撤销了上次的commit版本, git log 就找不到了,但工作区的代码仍然保留)
 撤销某一个git add <filename> :  git restore --staged <filename> （撤销该文件添加到暂存区的操作）
+----------------------------------------------------
+----------------------------------------------------
+git stash
+git stash drop  丢弃本地的更改（不merge），方便重新git pull
