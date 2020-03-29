@@ -26,10 +26,11 @@ git reflog   //查看命令历史，以便确定要回到未来的哪个版本
 git checkout -- <fliename>//用版本库里的版本替换工作区的版本，
                            无论工作区是修改还是删除，都可以“一键还原”
 git reset --hard HEAD^ //有几个^表示前几个版本，HEAD为当前版本，或 HEAD~88为前88个版本，
-                       回到哪个版本，HEAD指针指向哪个版本  （--hard会修改工作区的内容 ，--soft 则不会更改工作区，只撤销提交：git reset --soft HEAD^）
-或者git reset --hard <版本号>
+                       回到哪个版本，HEAD指针指向哪个版本  （--hard会修改工作区的内容 ，--soft 则不会更改工作区，只撤销提交：git reset --soft HEAD^）或者git reset --hard <版本号>
 
 git reset HEAD <filename>//可以把暂存区的修改撤销掉（unstage），重新放回工作区
+
+若远程分支已经被错误提交则本地回退后直接git push -f 
 
 git rm <filename>  //删除版本库的文件
 -----------------------------------------------------------------------------
@@ -60,9 +61,5 @@ git clone git@github.com:Nzzz/learngit.git //把远程库克隆到本地库
 将远程分支和本地分支合并: git pull origin (远程分支名):(本地分支名)
 ----------------------------------------------------
 ---------------------------------------------------
-撤销本地git commit -m "update " :  git reset --soft HEAD^   (head^表示仅仅撤销了上次的commit版本, git log 就找不到了,但工作区的代码仍然保留)
-撤销某一个git add <filename> :  git restore --staged <filename> （撤销该文件添加到暂存区的操作）
-----------------------------------------------------
-----------------------------------------------------
 git stash
 git stash drop  丢弃本地的更改（不merge），方便重新git pull
