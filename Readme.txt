@@ -63,3 +63,7 @@ git clone git@github.com:Nzzz/learngit.git //把远程库克隆到本地库
 ---------------------------------------------------
 git stash
 git stash drop  丢弃本地的更改（不merge），方便重新git pull
+
+git rev-list --all | xargs -rL1 git ls-tree -r --long | sort -uk3 | sort -rnk4 | head -10 查看排名前十的大文件
+git filter-branch --tree-filter "rm -f {filepath}" -- --all  在所有记录中强行删除大文件
+git push -f --all  强行提交到远程仓库，所有相关的本地仓库必须按以上方法删除才能与远程不冲突
