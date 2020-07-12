@@ -1,7 +1,7 @@
 osra是有源码的化学公式识别器，在linux下编译比较多，这可能是全网唯一一份windows下编译成功的说明文档。官网给的说明文档比较久远，坑也比较多。
 我选用msys2-32位编译，因为pacman包管理器比较方便，而且模拟了linux环境，跨平台编译比较方便。
 需要说明的是除了gocr是官网上找的修改过的，因为依赖版本问题我也修改过：
-	GraphicsMagic（png.c缺少了两个头文件的问题，跨平台的efine的问题）、
+	GraphicsMagic（png.c缺少了两个头文件的问题，跨平台的define的问题）、
 	osra/configure （找链接库的问题, -lopenbabel缺失-lz; -lgraphicsmagic缺少了它的依赖-lXXX 有9个）等文件。
 	解析输入路径时因为tclap版本问题cmdline解析中文会多加双引号，故在osra中后处理，去掉多的双引号
 
