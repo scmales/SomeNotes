@@ -59,6 +59,7 @@ int pos = str.find(str2) // 在str中寻找子串str2，有则返回第一次出
 max()
 min()
 abs()
+iterator itx = find(it, it+i, val)//用于差找vector和string
 swap(x, y)
 reverse(it1, it2)
 fill(it, it+i, x) //给某个容器的某段赋值
