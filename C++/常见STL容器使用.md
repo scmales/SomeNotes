@@ -53,7 +53,7 @@ int pos = str.find(str2) // 在str中寻找子串str2，有则返回第一次出
 #### 5. queue
 #### 6. stack
 #### 7. pair
-
+头文件```#include <utility> ```
 ### algorithm函数
 ```
 max()
