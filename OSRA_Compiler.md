@@ -1,15 +1,24 @@
-osra是有源码的化学公式识别器，在linux下编译比较多，这可能是全网唯一一份windows下编译成功的说明文档。官网给的说明文档比较久远，坑也比较多。
-我选用msys2-32位编译，因为pacman包管理器比较方便，而且模拟了linux环境，跨平台编译比较方便。
-需要说明的是除了gocr是官网上找的修改过的，因为依赖版本问题我也修改过：
-	GraphicsMagic（png.c缺少了两个头文件的问题，跨平台的define的问题）、
-	osra/configure （找链接库的问题, -lopenbabel缺失-lz; -lgraphicsmagic缺少了它的依赖-lXXX 有9个）等文件。
-	解析输入路径时因为tclap版本问题cmdline解析中文会多加双引号，故在osra中后处理，去掉多的双引号
+### OSRA在windows下编译
+#### 预处理
+osra是有源码的化学公式识别器，在linux下编译比较多，这可能是全网唯一一份windows下编译成功的说明文档。官网给的说明文档比较久远，坑也比较多。<br>
+我选用msys2-32位编译，因为pacman包管理器比较方便，而且模拟了linux环境，跨平台编译比较方便。<br>
 
-编译环境：Windows10-x64 + MSYS2-32 (含gcc) + cmake
-编译目标: OSRA-1.4 (Optical Structure Recognition Application) ———— 化学公式识别器，官网: https://cactus.nci.nih.gov/osra/
-编译主要依赖: TCLAP 、 gocr-0.5-patched 、 ocrad-0.21 、 openbabel-2.4.1 、GraphicsMagick-1.3.12-patched 、 potrace
-主要依赖的方法是：pacman安装相关依赖、cmake/configure 生成相关依赖的makefile，编译源码
+需要说明的是除了gocr是官网上找的修改过的，因为依赖版本问题我也修改过：
+```
+GraphicsMagic（png.c缺少了两个头文件的问题，跨平台的define的问题）、
+
+osra/configure （找链接库的问题, -lopenbabel缺失-lz; -lgraphicsmagic缺少了它的依赖-lXXX 有9个）等文件。
+
+解析输入路径时因为tclap版本问题cmdline解析中文会多加双引号，故在osra中后处理，去掉多的双引号
+```
+#### 开始编译
+- 编译环境：Windows10-x64 + MSYS2-32 (含gcc) + cmake <br>
+- 编译目标: OSRA-1.4 (Optical Structure Recognition Application) ———— 化学公式识别器，官网: https://cactus.nci.nih.gov/osra/ <br>
+- 编译主要依赖: TCLAP 、 gocr-0.5-patched 、 ocrad-0.21 、 openbabel-2.4.1 、GraphicsMagick-1.3.12-patched 、 potrace <br>
+- 主要依赖的方法是：pacman安装相关依赖、cmake/configure 生成相关依赖的makefile，编译源码
 步骤如下:
+
+```
 1. tclap 复制.h文件
 
 2. gocr 编译到msys32/usr/目录下
@@ -68,5 +77,6 @@ osra是有源码的化学公式识别器，在linux下编译比较多，这可�
 7. 安装osra-1.4: 		
 	./configure --prefix=/osra-1.4 CPPFLAGS="-I/mingw32/include -I/usr/include/GraphicsMagick" LDFLAGS="-L/mingw32/lib" 
 	make all install   //非静态编译，故需要手动复制相关dll
+ ```
 	
 
