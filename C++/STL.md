@@ -1,6 +1,12 @@
 ### STL容器使用
+STL容器自带拷贝功能，对于往STL中存入对象会进行对象的深拷贝，重新分配一块内存；对于往STL中存入指针同样会深拷贝一个新的指针，但是这两个指针指向同一块内存，要注意管理。
 #### 1. vector
-- 定义：vector<T> vec;
+- 定义：
+```
+vector<T> vec;
+ vector<T> vec(5);
+ vector<T> vec(10, 0); //表示申请10个空间都填上0
+```
 - 访问：
 ```
 vec[i]
@@ -51,10 +57,37 @@ int pos = str.find(str2) // 在str中寻找子串str2，有则返回第一次出
 #### 3. set
 #### 4. map
 #### 5. queue
-#### 6. stack
-#### 7. pair
+#### 6. priority_queue
+头文件```#include<queue>```
+- 定义```priority_queue<int, vector<int>, greate<int>> //表示最小的在头部，less表示最大的在头部```
+
+#### 7. stack
+#### 8. pair
 头文件```#include <utility> ```
+- 定义
+```
+pair<int , int> pa = make_pair(1,2);
+```
+
+#### 9. list
+头文件``` #include<list>```
+- 定义```list(n, val);```
+
+- 常用函数
+```
+list.begin() //迭代器
+list.end()
+list.front() //元素
+list.back()
+list.push_front()
+list.push_back()
+list.pop_front()
+list.pop_back();
+list.empty()
+```
+
 ### algorithm函数
+
 ```
 max()
 min()
